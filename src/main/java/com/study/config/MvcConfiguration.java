@@ -1,6 +1,8 @@
 package com.study.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -12,6 +14,9 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @Configuration
+@ComponentScans({
+        @ComponentScan("com.study.controller")
+})
 //快速配置SpringMvc注解，如果不添加此注解会导致后续无法通过实现MvcConfiguration接口进行自定义配置
 @EnableWebMvc
 public class MvcConfiguration  implements WebMvcConfigurer {
@@ -50,7 +55,7 @@ public class MvcConfiguration  implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         //配置静态资源的访问路径
     }
 }
