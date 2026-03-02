@@ -57,6 +57,12 @@ public class SecurityConfiguration {
                     conf.defaultSuccessUrl("/");//登录成功后跳转的页面
                     conf.permitAll(); //需要把上面配置的路径放行
                 })
+                //以下是退出登录相关配置
+                .logout(conf->{
+                    conf.logoutUrl("/doLogout");//退出登录地址 跟上面一样可自定义
+                    conf.logoutSuccessUrl("/login");//退出登录成功后跳转的地址，这里设置为登录界面
+                    conf.permitAll();
+                })
                 //关闭csrf相关配置
                 .csrf(conf->{
                     conf.disable();

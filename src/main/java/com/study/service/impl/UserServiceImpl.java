@@ -1,6 +1,7 @@
 package com.study.service.impl;
 
 import com.study.entity.Account;
+import com.study.entity.Student;
 import com.study.mapper.UserMapper;
 import com.study.service.UserService;
 import jakarta.annotation.Resource;
@@ -8,6 +9,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,5 +33,10 @@ public class UserServiceImpl implements UserService {
                 .password(account.getPassword())// 注意：数据库中必须存储密文密码，且项目需配置对应的密码编码器）
                 .roles(account.getRole())// 构建 UserDetails 对象（如需添加权限/角色，可在此处链式调用.roles()/.authorities()）
                 .build();
+    }
+
+    @Override
+    public List<Student> getStudentList() {
+        return userMapper.getStudentList();
     }
 }
