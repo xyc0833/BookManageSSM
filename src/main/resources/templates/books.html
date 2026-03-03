@@ -131,7 +131,7 @@
                                                 <tr th:each="book, iterStat : ${book_list}">
                                                     <td th:text="'#'+${book.getId()}">$600</td>
                                                     <td th:text="${book.getTitle()}">$600</td>
-                                                    <td th:text="${book.getDesc()}">$600</td>
+                                                    <td th:text="${book.getInfo()}">$600</td>
                                                     <td th:text="'￥'+${book.getPrice()}">$600</td>
                                                     <td>
                                                         <label class="mb-0 badge badge-primary" title="" data-original-title="Pending" th:if="${book_list_status.get(iterStat.index)}">正在借阅</label>

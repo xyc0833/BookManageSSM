@@ -12,4 +12,6 @@ public interface BookService {
     List<Book> getActiveBookList();
     void addBorrow(int sid,int bid);
     void returnBook(String id);
+    void addBook(String title,String info,double price);
+    void deleteBook(int bid);
 }

@@ -56,4 +56,14 @@ public class BookServiceImpl implements BookService {
         mapper.deleteBorrow(id);
     }
 
+    @Override
+    public void addBook(String title, String info, double price) {
+        mapper.addBook(title, info, price);
+    }
+
+    @Override
+    public void deleteBook(int bid) {
+        mapper.deleteBook(bid);
+    }
+
 }
